@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="user" path="/restpublic/buy-apps/user" id="e6862e75-14f4-4e3e-87cd-6a47df6355e6" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e6862e75-14f4-4e3e-87cd-6a47df6355e6fileName">user</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 3" id="5856df49-c6c7-450e-82b0-bfaebbd2fb52" method="PUT">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>version</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>deviceId</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>deviceName</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:request name="Request 1" id="7062cde8-505c-4c02-81ac-c2bfbb4cb41b" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:endpoint>https://www8.rakqa.fr</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://www8.rakqa.fr/restpublic/buy-apps/user</con:originalUri>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="version" value="1"/>
+        <con:entry key="deviceId" value="123456789"/>
+        <con:entry key="deviceName" value="bevus-phone"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>version</con:entry>
+        <con:entry>deviceId</con:entry>
+        <con:entry>deviceName</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

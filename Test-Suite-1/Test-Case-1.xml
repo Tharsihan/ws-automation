@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f7a3ddc1-ddfe-45fc-b815-66e530b82680" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f7a3ddc1-ddfe-45fc-b815-66e530b82680fileName">Test-Case-1</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="Groovy Script" id="1152295f-5265-48db-89e6-2efa3192e7b8">
+    <con:settings/>
+    <con:config>
+      <script>timestamp = new Date().getTime().toString();
+
+generatedUserName = timestamp.substring(2)+"U";
+generatedFirstName = timestamp.substring(2)+"F";
+generatedLastName = timestamp.substring(2)+"L";
+generatedEmailName = timestamp.substring(2)+"@postman.com";</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script 2" id="c2a8f79b-9249-4fad-bac9-bf01cfeac2d3">
+    <con:settings/>
+    <con:config>
+      <script>timestamp = new Date().getTime().toString();
+
+generatedUserName = timestamp.substring(2)+"U";</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script 2 2" id="1377a085-92b2-40d4-814b-727fe31119ae">
+    <con:settings/>
+    <con:config>
+      <script>timestamp = new Date().getTime().toString();
+
+generatedFirstName = timestamp.substring(2)+"F";</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script 2 2 2" id="eee48bef-6984-4edb-a874-2eef4c489a27">
+    <con:settings/>
+    <con:config>
+      <script>timestamp = new Date().getTime().toString();
+
+generatedLastName = timestamp.substring(2)+"L";</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="aa2979df-95a1-411a-873b-898adb682e15">
+    <con:settings/>
+    <con:config service="BUY" resourcePath="/restpublic/buy-apps/user" methodName="Method 3" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="7062cde8-505c-4c02-81ac-c2bfbb4cb41b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://www8.rakqa.fr</con:endpoint>
+        <con:request>{
+  "email":"${Groovy Script#result}",
+  "email_confirmation":"${Groovy Script#result}",
+  "password":"Sanatharsi@05",
+  "salutation":"30",
+  "first_name":"JJJJJJJJ",
+  "last_name":"THHHHHHHH",
+  "dob":"01/01/1970",
+  "accept_terms":true,
+  "subscribe_to_news_letters":true
+}</con:request>
+        <con:originalUri>https://www8.rakqa.fr/restpublic/buy-apps/user</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="b21c86d4-0428-400a-be44-ef508b6797b7" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="3f844835-3c6b-4828-87de-aeb80c1e49ee" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="DataAndMetadataAssertion" id="02b1690e-3905-4292-aa1d-d0fef705503d" name="Smart Assertion">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Data</con:mode>
+            <con:elements>
+              <con:path>$['users'][0]['id']</con:path>
+              <con:element>id</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>119341292</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['email']</con:path>
+              <con:element>email</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>43028017933@postman.com</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['type']</con:path>
+              <con:element>type</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>GUEST</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['firstName']</con:path>
+              <con:element>firstName</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>JJJJJJJJ</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['lastName']</con:path>
+              <con:element>lastName</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>THHHHHHHH</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['visibility']</con:path>
+              <con:element>visibility</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>HIDDEN_INACTIVE</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['reliability']</con:path>
+              <con:element>reliability</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>STANDARD</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['tokens'][0]['tokenId']</con:path>
+              <con:element>tokenId</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>3faa59b8ebcf4b20802214e34792d8f7</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['tokens'][0]['tokenType']</con:path>
+              <con:element>tokenType</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MOBILE_CRITICAL</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['tokens'][1]['tokenId']</con:path>
+              <con:element>tokenId</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>5a29f478d2d14470987eb858d57f60eb</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['tokens'][1]['tokenType']</con:path>
+              <con:element>tokenType</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MOBILE_LIGHT</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['isPreOrderGrant']</con:path>
+              <con:element>isPreOrderGrant</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>false</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>3</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['userFirstAdvertTrackingDate']</con:path>
+              <con:element>userFirstAdvertTrackingDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>null</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>4</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['isUserBuyer']</con:path>
+              <con:element>isUserBuyer</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>false</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>3</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['userBirthDate']</con:path>
+              <con:element>userBirthDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>-3600000</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['creationDate']</con:path>
+              <con:element>creationDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1643029109145</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['lastLoginDate']</con:path>
+              <con:element>lastLoginDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>null</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>4</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['isOnHoliday']</con:path>
+              <con:element>isOnHoliday</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>false</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>3</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['isShopActivationPending']</con:path>
+              <con:element>isShopActivationPending</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>false</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>3</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['registrationBirthDate']</con:path>
+              <con:element>registrationBirthDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>-3600000</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['sellerActivationDate']</con:path>
+              <con:element>sellerActivationDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>null</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>4</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['clubMembership']['clubMemberStatus']</con:path>
+              <con:element>clubMemberStatus</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>NOT_SUBSCRIBED</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['clubMembership']['presubscriptionDate']</con:path>
+              <con:element>presubscriptionDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>null</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>4</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['users'][0]['clubMembership']['blacklistEndDate']</con:path>
+              <con:element>blacklistEndDate</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>null</con:expectedValue>
+              <con:caseSensitive>false</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>4</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['deviceToken']</con:path>
+              <con:element>deviceToken</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>eyJhbGciOiJIUzUxMiJ9.eyJEZXZpY2VUb2tlbiI6IjAxNzc3YTZhMWY4NTQxNzE4ZDZlMTYyM2ZiZjUxNzU1MTY0MzAyOTEwOTkzMiJ9.kvJhaj-z_Uwr9LmOC2RpUE2D6qtKNaq8STW8WwoqR-KCzLEMenSaB1ubpsATXvbWLMoSWRnyoG05fmRQTO-9MQ</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{"users":[{"id":119341292,"email":"43028017933@postman.com","type":"GUEST","firstName":"JJJJJJJJ","lastName":"THHHHHHHH","visibility":"HIDDEN_INACTIVE","reliability":"STANDARD","tokens":[{"tokenId":"3faa59b8ebcf4b20802214e34792d8f7","tokenType":"MOBILE_CRITICAL"},{"tokenId":"5a29f478d2d14470987eb858d57f60eb","tokenType":"MOBILE_LIGHT"}],"isPreOrderGrant":false,"userFirstAdvertTrackingDate":null,"isUserBuyer":false,"userBirthDate":-3600000,"creationDate":1643029109145,"lastLoginDate":null,"isOnHoliday":false,"isShopActivationPending":false,"registrationBirthDate":-3600000,"sellerActivationDate":null,"clubMembership":{"clubMemberStatus":"NOT_SUBSCRIBED","presubscriptionDate":null,"blacklistEndDate":null}}],"deviceToken":"eyJhbGciOiJIUzUxMiJ9.eyJEZXZpY2VUb2tlbiI6IjAxNzc3YTZhMWY4NTQxNzE4ZDZlMTYyM2ZiZjUxNzU1MTY0MzAyOTEwOTkzMiJ9.kvJhaj-z_Uwr9LmOC2RpUE2D6qtKNaq8STW8WwoqR-KCzLEMenSaB1ubpsATXvbWLMoSWRnyoG05fmRQTO-9MQ"}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="version" value="1"/>
+          <con:entry key="deviceId" value="123456789"/>
+          <con:entry key="deviceName" value="bevus-phone"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>version</con:entry>
+          <con:entry>deviceId</con:entry>
+          <con:entry>deviceName</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="Assertion" id="8bfb0c56-803f-48b8-845e-e0f9522af308">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
