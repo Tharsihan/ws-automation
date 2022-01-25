@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="f7a3ddc1-ddfe-45fc-b815-66e530b82680" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="f7a3ddc1-ddfe-45fc-b815-66e530b82680" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC-001-User" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="f7a3ddc1-ddfe-45fc-b815-66e530b82680fileName">Test-Case-1</con:setting>
+    <con:setting id="f7a3ddc1-ddfe-45fc-b815-66e530b82680fileName">TC-001-User</con:setting>
   </con:settings>
   <con:testStep type="groovy" name="Groovy Script" id="1152295f-5265-48db-89e6-2efa3192e7b8">
     <con:settings/>
@@ -14,7 +14,7 @@ generatedLastName = timestamp.substring(2)+"L";
 generatedEmailName = timestamp.substring(2)+"@postman.com";</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Groovy Script 2" id="c2a8f79b-9249-4fad-bac9-bf01cfeac2d3">
+  <con:testStep type="groovy" name="UserName" id="c2a8f79b-9249-4fad-bac9-bf01cfeac2d3">
     <con:settings/>
     <con:config>
       <script>timestamp = new Date().getTime().toString();
@@ -22,7 +22,7 @@ generatedEmailName = timestamp.substring(2)+"@postman.com";</script>
 generatedUserName = timestamp.substring(2)+"U";</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Groovy Script 2 2" id="1377a085-92b2-40d4-814b-727fe31119ae">
+  <con:testStep type="groovy" name="FirstName" id="1377a085-92b2-40d4-814b-727fe31119ae">
     <con:settings/>
     <con:config>
       <script>timestamp = new Date().getTime().toString();
@@ -30,7 +30,7 @@ generatedUserName = timestamp.substring(2)+"U";</script>
 generatedFirstName = timestamp.substring(2)+"F";</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Groovy Script 2 2 2" id="eee48bef-6984-4edb-a874-2eef4c489a27">
+  <con:testStep type="groovy" name="LastName" id="eee48bef-6984-4edb-a874-2eef4c489a27">
     <con:settings/>
     <con:config>
       <script>timestamp = new Date().getTime().toString();
@@ -41,7 +41,7 @@ generatedLastName = timestamp.substring(2)+"L";</script>
   <con:testStep type="restrequest" name="REST Request" id="aa2979df-95a1-411a-873b-898adb682e15">
     <con:settings/>
     <con:config service="BUY" resourcePath="/restpublic/buy-apps/user" methodName="Method 3" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="REST Request" id="7062cde8-505c-4c02-81ac-c2bfbb4cb41b" mediaType="application/json" postQueryString="false">
+      <con:restRequest name="REST Request" id="7062cde8-505c-4c02-81ac-c2bfbb4cb41b" mediaType="application/x-www-form-urlencoded" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Accept" value="application/json"/>
@@ -52,10 +52,10 @@ generatedLastName = timestamp.substring(2)+"L";</script>
         <con:request>{
   "email":"${Groovy Script#result}",
   "email_confirmation":"${Groovy Script#result}",
-  "password":"Sanatharsi@05",
+  "password":"Sanatharuj@05",
   "salutation":"30",
-  "first_name":"JJJJJJJJ",
-  "last_name":"THHHHHHHH",
+  "first_name":"tharsssls",
+  "last_name":"skskksksk",
   "dob":"01/01/1970",
   "accept_terms":true,
   "subscribe_to_news_letters":true
@@ -65,11 +65,6 @@ generatedLastName = timestamp.substring(2)+"L";</script>
           <con:settings/>
           <con:configuration>
             <codes>200</codes>
-          </con:configuration>
-        </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="3f844835-3c6b-4828-87de-aeb80c1e49ee" name="Response SLA">
-          <con:configuration>
-            <SLA>200</SLA>
           </con:configuration>
         </con:assertion>
         <con:assertion type="DataAndMetadataAssertion" id="02b1690e-3905-4292-aa1d-d0fef705503d" name="Smart Assertion">
@@ -343,13 +338,19 @@ generatedLastName = timestamp.substring(2)+"L";</script>
           <con:entry>deviceId</con:entry>
           <con:entry>deviceName</con:entry>
         </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="63e5a990-cd26-4bc6-bcea-92cc2e3793d8">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="assertionteststep" name="Assertion" id="8bfb0c56-803f-48b8-845e-e0f9522af308">
-    <con:settings/>
-    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="63e5a990-cd26-4bc6-bcea-92cc2e3793d8">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:testCase>

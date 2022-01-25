@@ -1,2 +1,4 @@
 BUY\user.xml
-Test-Suite-1\Test-Case-1.xml
+WHITELIST\ipAddress.xml
+SmokeTests\TC-001-User.xml
+SmokeTests\TC-002-WhiteList-Ip-User.xml
