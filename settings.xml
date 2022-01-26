@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="8f39c074-8103-48b7-8487-b3bca3d1ba27" created="3.20.0" activeEnvironment="env8" name="WS-AUTOMATION" resourceRoot="" compositeProjectFormat="1.3" updated="3.20.0" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="8f39c074-8103-48b7-8487-b3bca3d1ba27" created="3.20.0" activeEnvironment="env8" name="WS-AUTOMATION" resourceRoot="" compositeProjectFormat="1.3" updated="3.20.0" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Settings File Password" value=""/>
@@ -38,6 +38,7 @@
   <con:entry key="Tool Args" value=""/>
   <con:entry key="Save Project" value="false"/>
 </xml-fragment>]]></con:setting>
+    <con:setting id="8f39c074-8103-48b7-8487-b3bca3d1ba27fileName">ws</con:setting>
   </con:settings>
   <con:requirements/>
   <con:properties/>
@@ -46,7 +47,6 @@
   <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
-  <con:reporting/>
   <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
     <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
 // This code is often used for adding custom authentication to ReadyAPI functional tests

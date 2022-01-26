@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="user" path="/restpublic/buy-apps/user" id="e6862e75-14f4-4e3e-87cd-6a47df6355e6" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="user" path="/restpublic/buy-apps/user" id="e6862e75-14f4-4e3e-87cd-6a47df6355e6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="e6862e75-14f4-4e3e-87cd-6a47df6355e6fileName">user</con:setting>
   </con:settings>
@@ -37,6 +37,7 @@
       <con:request/>
       <con:originalUri>https://www8.rakqa.fr/restpublic/buy-apps/user</con:originalUri>
       <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>

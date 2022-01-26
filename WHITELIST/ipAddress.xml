@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="ipAddress" path="/restprivate/whitelist/ipAddress" id="65992446-9ce0-41df-8df0-951e5cd62e59" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="ipAddress" path="/restprivate/whitelist/ipAddress" id="65992446-9ce0-41df-8df0-951e5cd62e59" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="65992446-9ce0-41df-8df0-951e5cd62e59fileName">ipAddress</con:setting>
   </con:settings>
@@ -11,8 +11,10 @@
       <con:settings>
         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
       </con:settings>
+      <con:endpoint>http://docker-qa802.fra1-openstack.local:33500</con:endpoint>
       <con:request>{"ipAddress":"100.20.123.235","userId":"1636337373"}</con:request>
       <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
