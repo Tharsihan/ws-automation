@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="" path="/restprivate/otp/user/{userID}" id="e5948bbb-2adf-4c2b-add0-cdfc1d40225a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e5948bbb-2adf-4c2b-add0-cdfc1d40225afileName">%2Frestprivate%2Fotp%2Fuser%2F%7BuserID%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter>
+      <con:name>userID</con:name>
+      <con:value>tharsi</con:value>
+      <con:style>TEMPLATE</con:style>
+      <con:default>tharsi</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="initialize" id="a536a126-0077-4c0b-99e6-020c6d46f700" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Request 1" id="70094b9d-93e9-44c0-8546-185f1895a990" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
+      </con:settings>
+      <con:request>{
+	"label": "jjjjj";
+}</con:request>
+      <con:originalUri>http://tech-recette02.priceminister.lan/restprivate/otp/user/hhhh</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="userID" value="Marc"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>userID</con:entry>
+      </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="9b0bf4cf-29b9-46e6-a92e-63f891d043e0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="9b0bf4cf-29b9-46e6-a92e-63f891d043e0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="9b0bf4cf-29b9-46e6-a92e-63f891d043e0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

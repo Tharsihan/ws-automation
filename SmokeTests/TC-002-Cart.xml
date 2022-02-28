@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="6145e262-461e-4a1c-9a3c-6222aadbb2d2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC-002-Cart" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6145e262-461e-4a1c-9a3c-6222aadbb2d2fileName">TC-002-Cart</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request" id="37c19339-47f3-44cc-969f-60c179d3c390">
+    <con:settings/>
+    <con:config service="BUY-APPS" resourcePath="/restpublic/buy-apps/cart/add" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="094aa55a-d4af-440b-9d87-4536ba37b79e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:request>{
+  "advertId":"3311250738",
+  "buyerCountryId":249
+}</con:request>
+        <con:originalUri>http://172.21.101.56/restpublic/buy-apps/cart/add</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="af71a16d-b076-46c8-9c8a-c9d8e1a92d33" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>404</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="dd6a78ce-6df4-4563-b954-b3bc50efbbc7" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c1e2bfda-aa0e-4f04-8002-13dcba92006c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC-003-OTP" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c1e2bfda-aa0e-4f04-8002-13dcba92006cfileName">TC-003-OTP</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="GetUserId" id="1ad77d36-eeb8-46c5-8320-40dd2beba511">
+    <con:settings/>
+    <con:config>
+      <script>def datasetsPath = new com.eviware.soapui.support.GroovyUtils(context).projectPath+ File.separator + "ws"+ File.separator+"prenom.csv"
+File file = new File(datasetsPath)
+List line = file.readLines()
+rowIndex  =  Math.abs(new Random().nextInt() % 4 + 1)
+ line[rowIndex]</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="bc09471b-6ae7-4098-b236-d7df23b2a9c9">
+    <con:settings/>
+    <con:config service="OTP" resourcePath="/restprivate/otp/user/{userID}" methodName="initialize" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="70094b9d-93e9-44c0-8546-185f1895a990" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:request>{
+  "label": "lllll"
+}</con:request>
+        <con:originalUri>http://tech-recette02.priceminister.lan/restprivate/otp/user/hhhh</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="ec2d9a89-419d-42c2-ae9c-89f0353a145a" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="9a731922-e8ee-4ae0-a2ce-03dcf1d102c3" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="userID" value="${GetUserId#result}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>userID</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="9b0bf4cf-29b9-46e6-a92e-63f891d043e0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>userid</con:name>
+      <con:value>tharsi</con:value>
+    </con:property>
+    <con:property>
+      <con:name>label</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testCase>

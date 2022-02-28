@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="8ca4f4ad-dfa3-4217-8608-5bacc3e00a6e" name="BUY-APPS" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:settings>
+    <con:setting id="8ca4f4ad-dfa3-4217-8608-5bacc3e00a6efileName">BUY-APPS</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="BUY-APPS.json">
+    <con:part>
+      <con:url>BUY-APPS.json</con:url>
+      <con:content>{"openapi":"3.0.1","info":{"title":"BUY-APPS","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/restpublic/buy-apps/cart/add":{"description":"","post":{"description":"","requestBody":{"content":{"application/json":{"example":"{\n  \"advertId\":\"3311250738\",\n  \"buyerCountryId\":249\n}"}}},"responses":{"default":{"description":"Default response"}}},"parameters":[{"name":"version","in":"query"}]}}}</con:content>
+      <con:type>https://swagger.io/openapiv3/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints/>
+</con:interface>

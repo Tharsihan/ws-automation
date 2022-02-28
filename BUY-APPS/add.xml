@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="add" path="/restpublic/buy-apps/cart/add" id="7caa02c5-1eff-4901-8b02-92fc081c4ea2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7caa02c5-1eff-4901-8b02-92fc081c4ea2fileName">add</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>version</con:name>
+      <con:value>2</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>2</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="071367cd-2a24-49e1-ba86-cffac4231684" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Request 1" id="094aa55a-d4af-440b-9d87-4536ba37b79e" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:request>{
+  "advertId":"3311250738",
+  "buyerCountryId":249
+}</con:request>
+      <con:originalUri>http://172.21.101.56/restpublic/buy-apps/cart/add</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>
