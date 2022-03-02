@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<con:testSuite id="9ca880b2-ea92-41f0-98ef-815483a7207d" name="Library" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings>
-    <con:setting id="9ca880b2-ea92-41f0-98ef-815483a7207dfileName">Library</con:setting>
-  </con:settings>
-  <con:runType>SEQUENTIAL</con:runType>
-  <con:properties/>
-  <con:reportParameters/>
-</con:testSuite>
