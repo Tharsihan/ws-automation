@@ -24,7 +24,6 @@ public class Tfa {
     private String firstnameOut;
 
     @Value("${test.property}")
-
     private String value;
 
     public Tfa(TfaService tfaService) {

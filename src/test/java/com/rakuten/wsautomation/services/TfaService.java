@@ -8,6 +8,7 @@ import com.rakuten.wsautomation.utils.json.ResponseApi;
 import com.rakuten.wsautomation.utils.json.ResponseError;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,13 +17,16 @@ import static io.restassured.RestAssured.given;
 @Service
 public class TfaService {
 
-    private final String endpointR1 = "https://www8.rakqa.fr/restpublic/buy-apps/authentication/device/generate?version=1";
-    private final String endpointR2 = "https://www8.rakqa.fr/restpublic/buy-apps/authentication?version=1";
-    private final String endpointR3 = "http://172.21.101.86:33500/restprivate/login/verification";
-    private final String endpointR4 = "https://www8.rakqa.fr/restpublic/buy-apps/authentication/token?version=1";
-    private final String endpointR5 = "http://172.21.101.86:34000/restprivate/migrate";
-
-
+    @Value("${test.endpointR1}")
+    private final String endpointR1 = null;
+    @Value("${test.endpointR2}")
+    private final String endpointR2 = null;
+    @Value("${test.endpointR3}")
+    private final String endpointR3 = null;
+    @Value("${test.endpointR4}")
+    private final String endpointR4 = null;
+    @Value("${test.endpointR5}")
+    private final String endpointR5 = null;
 
     public static Response getResponse(String dataJson) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -43,7 +47,7 @@ public class TfaService {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(dataJson, RegisterUserParent.class);
     }
-    public <T> T mapResponse (String body, Class<T> reponseType) throws JsonProcessingException {
+    public <T> T mapperResponse (String body, Class<T> reponseType) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(body, reponseType);
     }
