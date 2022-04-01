@@ -28,25 +28,7 @@ public class TfaService {
     @Value("${test.endpointR5}")
     private final String endpointR5 = null;
 
-    public static Response getResponse(String dataJson) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(dataJson, Response.class);
-    }
 
-    public static ResponseError getErrorResponse(String dataJson) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(dataJson, ResponseError.class);
-    }
-
-    public static ResponseApi getResponseAPI(String dataJson) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(dataJson, ResponseApi.class);
-    }
-
-    public static RegisterUserParent getUserInfo(String dataJson) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(dataJson, RegisterUserParent.class);
-    }
     public <T> T mapperResponse (String body, Class<T> reponseType) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(body, reponseType);

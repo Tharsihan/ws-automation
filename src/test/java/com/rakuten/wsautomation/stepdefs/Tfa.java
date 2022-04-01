@@ -1,6 +1,10 @@
 package com.rakuten.wsautomation.stepdefs;
 
 import com.rakuten.wsautomation.services.TfaService;
+import com.rakuten.wsautomation.utils.json.RegisterUserParent;
+import com.rakuten.wsautomation.utils.json.Response;
+import com.rakuten.wsautomation.utils.json.ResponseApi;
+import com.rakuten.wsautomation.utils.json.ResponseError;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,6 +32,7 @@ public class Tfa {
 
     public Tfa(TfaService tfaService) {
         this.tfaService = tfaService;
+        System.out.println("test");
     }
 
     @When("I send a POST request to the URL \"([^\"]*)\"$")
@@ -46,7 +51,7 @@ public class Tfa {
         String responseJson = validatableResponse.extract().asPrettyString();
         if (responseJson != null) {
             try {
-                deviceTokenOut = TfaService.getResponse(responseJson).getDeviceToken();
+                deviceTokenOut = tfaService.mapperResponse(responseJson,Response.class).getDeviceToken();
                 System.out.print("device token:" + deviceTokenOut);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -71,7 +76,7 @@ public class Tfa {
         String responseJson = validatableResponse.extract().asPrettyString();
         if (responseJson != null) {
             try {
-                verificationTokenOut = TfaService.getErrorResponse(responseJson).getVerificationToken();
+                verificationTokenOut = tfaService.mapperResponse(responseJson, ResponseError.class).getVerificationToken();
                 System.out.print("verification Token:" + verificationTokenOut);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -95,7 +100,7 @@ public class Tfa {
         if (responseJson != null) {
             String token = null;
             try {
-                token = TfaService.getResponseAPI(responseJson).getToken();
+                token = tfaService.mapperResponse(responseJson, ResponseApi.class).getToken();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -114,7 +119,7 @@ public class Tfa {
         String responseJson = validatableResponse.extract().asPrettyString();
         if (responseJson != null) {
             try {
-                firstnameOut = TfaService.getUserInfo(responseJson).getUsers().get(0).getFirstName();
+                firstnameOut = tfaService.mapperResponse(responseJson, RegisterUserParent.class).getUsers().get(0).getFirstName();
                 System.out.print("firstname:" + firstnameOut);
             } catch (IOException e) {
                 e.printStackTrace();
