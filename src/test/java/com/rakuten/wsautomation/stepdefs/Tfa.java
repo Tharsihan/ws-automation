@@ -13,7 +13,6 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.io.IOException;
 
 @SpringBootTest
@@ -32,13 +31,12 @@ public class Tfa {
 
     public Tfa(TfaService tfaService) {
         this.tfaService = tfaService;
-        System.out.println("test");
     }
 
     @When("I send a POST request to the URL \"([^\"]*)\"$")
     public void iSendAPOSTRequestToTheURL(String deviceToken) {
         System.out.println(value);
-        validatableResponse = tfaService.GenerateDeviceTokenRequest(deviceToken);
+        validatableResponse = tfaService.generateDeviceTokenRequest(deviceToken);
     }
 
     @Then("^The request will return (\\d+)$")
@@ -62,7 +60,7 @@ public class Tfa {
     @When("^I send a POST request to the URL$")
     public void i_send_a_POST_request_to_the_URL() {
         System.out.println("device token output :" + deviceTokenOut);
-        validatableResponse = tfaService.GenerateDeviceTokenRequest(deviceTokenOut);
+        validatableResponse = tfaService.generateDeviceTokenRequest(deviceTokenOut);
     }
 
     @And("The response should have the same deviceToken")
@@ -72,7 +70,7 @@ public class Tfa {
 
     @When("I send a POST request to generate a token")
     public void iSendAPOSTRequestToGenerateAToken() {
-        validatableResponse = tfaService.GenerateTokenRequest(deviceTokenOut);
+        validatableResponse = tfaService.generateTokenRequest(deviceTokenOut);
         String responseJson = validatableResponse.extract().asPrettyString();
         if (responseJson != null) {
             try {
@@ -91,7 +89,7 @@ public class Tfa {
 
     @When("I send a PUT request to verify the verification token")
     public void iSendAPUTRequestToVerifyTheVerificationToken() {
-        validatableResponse = tfaService.VerificationTokenRequest(verificationTokenOut);
+        validatableResponse = tfaService.verificationTokenRequest(verificationTokenOut);
     }
 
     @Then("^The response should have a token$")
@@ -111,7 +109,7 @@ public class Tfa {
 
     @When("I send a POST request to validate the two factor authentification")
     public void iSendAPOSTRequestToValidateTheTwoFactorAuthentification() {
-        validatableResponse = tfaService.AuthentificationRequest(verificationTokenOut,deviceTokenOut);
+        validatableResponse = tfaService.authentificationRequest(verificationTokenOut,deviceTokenOut);
     }
 
     @And("The response returns the user info which means that the tfa authentication is successful")
@@ -129,7 +127,7 @@ public class Tfa {
 
     @When("I send a POST request to create an user")
     public void iSendAPOSTRequestToCreateAnUser() {
-        System.out.println(tfaService.CreateUserRequest().extract().asPrettyString());
+        System.out.println(tfaService.createUserRequest().extract().asPrettyString());
     }
 
     @And("The response should have userid")
@@ -138,12 +136,12 @@ public class Tfa {
 
     @When("I send a POST request to add a phone number to an user")
     public void iSendAPOSTRequestToAddAPhoneNumberToAnUser() {
-        validatableResponse=tfaService.SetPhoneNumberRequest("+33666475063","119427192");
+        validatableResponse=tfaService.setPhoneNumberRequest("+33666475063","119427192");
     }
 
     @When("I send a PUT request to add a method of authentification")
     public void iSendAPUTRequestToAddAMethodOfAuthentification() {
-        validatableResponse=tfaService.SetTfaMethodRequest("119427192");
+        validatableResponse=tfaService.setTfaMethodRequest("119427192");
 
     }
 }

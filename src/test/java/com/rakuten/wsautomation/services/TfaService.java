@@ -2,15 +2,10 @@ package com.rakuten.wsautomation.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rakuten.wsautomation.utils.json.RegisterUserParent;
-import com.rakuten.wsautomation.utils.json.Response;
-import com.rakuten.wsautomation.utils.json.ResponseApi;
-import com.rakuten.wsautomation.utils.json.ResponseError;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import java.io.IOException;
 import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 
@@ -18,15 +13,15 @@ import static io.restassured.RestAssured.given;
 public class TfaService {
 
     @Value("${test.endpointR1}")
-    private final String endpointR1 = null;
+    private String endpointR1;
     @Value("${test.endpointR2}")
-    private final String endpointR2 = null;
+    private String endpointR2;
     @Value("${test.endpointR3}")
-    private final String endpointR3 = null;
+    private String endpointR3;
     @Value("${test.endpointR4}")
-    private final String endpointR4 = null;
+    private String endpointR4;
     @Value("${test.endpointR5}")
-    private final String endpointR5 = null;
+    private String endpointR5;
 
 
     public <T> T mapperResponse (String body, Class<T> reponseType) throws JsonProcessingException {
@@ -34,19 +29,19 @@ public class TfaService {
         return objectMapper.readValue(body, reponseType);
     }
 
-    public ValidatableResponse GenerateDeviceTokenRequest(String deviceToken) {
+    public ValidatableResponse generateDeviceTokenRequest(String deviceToken) {
         HashMap<String, String> info = new HashMap<>();
         info.put("deviceToken", deviceToken);
          ValidatableResponse response= given()
                 .contentType(ContentType.JSON)
                 .body(info)
                 .when()
-                .post(endpointR1).then().assertThat();
+                .post(endpointR1).then();
          return response;
 
     }
 
-    public ValidatableResponse GenerateTokenRequest(String deviceToken) {
+    public ValidatableResponse generateTokenRequest(String deviceToken) {
         HashMap<String, String> info = new HashMap<>();
         info.put("deviceId", "123456789");
         info.put("identifier", "qa-16415666491579999@yopmail.com");
@@ -59,7 +54,7 @@ public class TfaService {
                 .when().post(endpointR2).then();
     }
 
-    public ValidatableResponse VerificationTokenRequest(String token) {
+    public ValidatableResponse verificationTokenRequest(String token) {
         HashMap<String, String> info = new HashMap<>();
         info.put("token", token);
         return given()
@@ -68,7 +63,7 @@ public class TfaService {
                 .when().put(endpointR3).then();
     }
 
-    public ValidatableResponse AuthentificationRequest(String token, String deviceToken) {
+    public ValidatableResponse authentificationRequest(String token, String deviceToken) {
         HashMap<String, String> info = new HashMap<>();
         info.put("verificationToken", token);
         info.put("deviceToken", deviceToken);
@@ -96,7 +91,7 @@ public class TfaService {
         return info;
     }
 
-    public ValidatableResponse CreateUserRequest() {
+    public ValidatableResponse createUserRequest() {
         return given().contentType(ContentType.JSON)
                 .queryParam("version", "1")
                 .queryParam("deviceId", "133456787")
@@ -107,7 +102,7 @@ public class TfaService {
                 .put("https://www8.rakqa.fr/restpublic/buy-apps/user").then();
     }
 
-    public ValidatableResponse SetPhoneNumberRequest(String phoneNumber, String userId) {
+    public ValidatableResponse setPhoneNumberRequest(String phoneNumber, String userId) {
         HashMap<String, String> info = new HashMap<>();
         info.put("channel", "SMS");
         info.put("phoneNumber", phoneNumber );
@@ -118,7 +113,7 @@ public class TfaService {
                 .when().post(endpointR5).then();
     }
 
-    public ValidatableResponse SetTfaMethodRequest(String userId) {
+    public ValidatableResponse setTfaMethodRequest(String userId) {
         HashMap<String, String> info = new HashMap<>();
         info.put("preferredLoginMethod", "TFA");
         return given()
